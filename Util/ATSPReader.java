@@ -1,4 +1,4 @@
-package InstancesTSP;
+package Util;
 
 import java.io.*;
 import java.util.*;
@@ -34,7 +34,7 @@ public class ATSPReader {
         }
 
         if (dimension <= 0) {
-            throw new IllegalArgumentException("DIMENSION inválida");
+            throw new IllegalArgumentException("Dimensión inválida");
         }
 
         int[][] matrix = new int[dimension][dimension];

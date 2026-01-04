@@ -11,4 +11,4 @@ El proyecto implementa un algoritmo evolutivo donde cada individuo es un camino 
  `Main.java`: configura y ejecuta el algoritmo.  
  `Population.java`: maneja la poblacion y las estadisticas de fitness.  
  `Path.java`: representa un camino y calcula costo/fitness.  
- `InstancesTSP`: lector ATSP y archivos de instancias.
+ `Util`: lector ATSP y archivos de instancias.
