@@ -1,6 +1,7 @@
-// java
+package Model;// java
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class Path {
@@ -80,7 +81,6 @@ public class Path {
             tour.add(current + 1);
         }
 
-        // construir Path reutilizando el constructor actual
         Path p = new Path(n, costs);
         p.cities.clear();
         p.cities.addAll(tour);
@@ -104,5 +104,14 @@ public class Path {
     public String toString() {
         String fitnessStr = String.format("%.8f", fitness);
         return cities.toString() + " | Cost: " + pathCost + "  | Fitness: " + fitnessStr;
+    }
+
+    public boolean equals(Path p2){
+        for (int i = 0; i < cities.size(); i++){
+            if(!Objects.equals(cities.get(i), p2.cities.get(i))){
+                return false;
+            }
+        }
+        return true;
     }
 }

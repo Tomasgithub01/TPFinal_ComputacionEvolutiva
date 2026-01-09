@@ -1,5 +1,6 @@
+package Model;
+
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class Population {
@@ -28,14 +29,14 @@ public class Population {
         ArrayList<Path> paths = new ArrayList<>(N);
         Random rnd = new Random();
 
-        // 1) individuos por vecino más cercano
+        // 1) individuos generados por vecino más cercano
         for (int i = 0; i < nNN; i++) {
             int startCity = rnd.nextInt(C);
             Path p = Path.createNearestNeighborPath(startCity, costs);
             paths.add(p);
         }
 
-        // 2) individuos aleatorios
+        // 2) individuos generados de forma aleatoria
         for (int i = 0; i < nRandom; i++) {
             Path p = new Path(C, costs);
             paths.add(p);
@@ -47,7 +48,7 @@ public class Population {
     public void printPaths() {
         int i = 1;
         for (Path path : possiblePaths) {
-            String name = "Path " + i + ": ";
+            String name = "Model.Path " + i + ": ";
             System.out.println(name + path.toString());
             i++;
         }
@@ -112,6 +113,10 @@ public class Population {
                 p.setFitness(fitness);
             }
         }
+    }
+
+    public ArrayList<Path> getPaths(){
+        return new ArrayList<>(possiblePaths);
     }
 
 

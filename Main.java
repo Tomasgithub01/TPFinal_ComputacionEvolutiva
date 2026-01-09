@@ -1,7 +1,13 @@
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
+
+import Components.TournamentMethod;
+import Model.Population;
+import Model.Couple;
+import Model.Path;
 import Util.ATSPReader;
 
 public class Main {
@@ -94,10 +100,45 @@ public class Main {
                 scanner.close();
                 return;
         }
-
+        ArrayList<Path> generatedPaths = p.getPaths();
         p.aplicarFitnessSegunRegimen();
         System.out.println("-----------------------------------");
         p.printPaths();
+
+        // ----------------------------------------------------------------------------------------------------
+
+        //ELEGIR MÉTODO DE SELECCIÓN DE PADRES A UTILIZAR
+        System.out.println("Ingrese el método de selección de padres: 1) Selección por Torneo 2) Rueda de Ruleta (ingrese 1 o 2): \"");
+        opcion = scanner.nextLine();
+        ArrayList<Couple> parejas = new ArrayList<>();
+        switch (opcion){
+            case "1":
+                //Preguntamos el tamaño que desea para el torneo
+                System.out.println("Qué tamaño de torneo desea? (Se sugiere valores entre 2 y 10): ");
+                int tamanio = Integer.parseInt(scanner.nextLine());
+                if (tamanio <= 1 || tamanio >= N){
+                    System.out.println("El tamaño del torneo ingresado no es un valor válido");
+                    scanner.close();
+                }
+                 //Ahora, generamos N/2 parejas de padres para generar hijos4
+                 TournamentMethod tM = new TournamentMethod(tamanio);
+                 for (int i = 0; i < N / 2; i++) {
+                     //Seleccionamos 2 candidatos a padres
+                     Path padre1 = tM.selectFather(generatedPaths);
+                     Path padre2 = tM.selectFather(generatedPaths);
+                     //Si la selección eligió dos veces al mismo padre, iteramos hasta que se elija uno distinto
+                     while (padre1.equals(padre2)) {
+                         padre2 = tM.selectFather(generatedPaths);
+                     }
+                     Couple parejaGenerada = new Couple(padre1, padre2);
+                     parejas.add(parejaGenerada);
+                 }
+            case "2":
+
+
+
+
+        }
 
 
     }
