@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
+import Components.FatherSelectionMethod;
 import Components.TournamentMethod;
+import Components.RouletteWheelMethod;
 import Model.Population;
 import Model.Couple;
 import Model.Path;
@@ -123,29 +125,33 @@ public class Main {
                     System.out.println("El tamaño del torneo ingresado no es un valor válido");
                     scanner.close();
                 }
-                 //Ahora, generamos N/2 parejas de padres para generar hijos4
                  TournamentMethod tM = new TournamentMethod(tamanio);
-                 for (int i = 0; i < N / 2; i++) {
-                     //Seleccionamos 2 candidatos a padres
-                     Path padre1 = tM.selectFather(generatedPaths);
-                     Path padre2 = tM.selectFather(generatedPaths);
-                     //Si la selección eligió dos veces al mismo padre, iteramos hasta que se elija uno distinto
-                     while (padre1.equals(padre2)) {
-                         padre2 = tM.selectFather(generatedPaths);
-                     }
-                     Couple parejaGenerada = new Couple(padre1, padre2);
-                     parejas.add(parejaGenerada);
-                 }
-                 for (Couple pareja : parejas) {
-                    pareja.mostrarPareja();
-                 }
+                 generarParejas(generatedPaths, parejas, N, tM);
+                 break;
             case "2":
-
-
-
+                System.out.println("Usando el método de Selección de Padres por Rueda de Ruleta....");
+                RouletteWheelMethod rwM = new RouletteWheelMethod();
+                generarParejas(generatedPaths, parejas, N, rwM);
+                break;
 
         }
 
 
     }
+
+    private static void generarParejas(ArrayList<Path> generatedPaths, ArrayList<Couple> parejas, int N, FatherSelectionMethod strategy) {
+        for (int i = 0; i < N / 2; i++) {
+            Path padre1 = strategy.selectFather(generatedPaths);
+            Path padre2 = strategy.selectFather(generatedPaths);
+            while (padre1.equals(padre2)) {
+                padre2 = strategy.selectFather(generatedPaths);
+            }
+            Couple parejaGenerada = new Couple(padre1, padre2);
+            parejas.add(parejaGenerada);
+        }
+        for (Couple pareja : parejas) {
+            pareja.mostrarPareja();
+        }
+    }
+
 }

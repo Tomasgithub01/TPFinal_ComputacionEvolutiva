@@ -18,11 +18,11 @@ public class Couple{
         System.out.println("  Papá:");
         System.out.println("    Ruta   : " + dad.getCities());
         System.out.println("    Coste  : " + dad.getPathCost());
-        System.out.println("    Fitness: " + dad.getFitness());
+        System.out.println("    Fitness: " + String.format("%.8f", dad.getFitness()));
         System.out.println("  Mamá:");
         System.out.println("    Ruta   : " + mom.getCities());
         System.out.println("    Coste  : " + mom.getPathCost());
-        System.out.println("    Fitness: " + mom.getFitness());
+        System.out.println("    Fitness: " + String.format("%.8f", mom.getFitness()));
     }
 
 }
