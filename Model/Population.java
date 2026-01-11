@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Population {
-    private final ArrayList<Path> possiblePaths;
+    private ArrayList<Path> possiblePaths;
     private final double mutProb;
     private final double crossProb;
     private final int generations;
+
 
     public enum FitnessRegime {
         MUY_SIMILARES,
@@ -117,6 +118,24 @@ public class Population {
 
     public ArrayList<Path> getPaths(){
         return new ArrayList<>(possiblePaths);
+    }
+
+    public Path getBestPath(){
+        if (possiblePaths == null || possiblePaths.isEmpty()) {
+            return null;
+        }
+
+        Path best = possiblePaths.getFirst();
+        for (Path p : possiblePaths) {
+            if (p.getFitness() > best.getFitness()) {
+                best = p;
+            }
+        }
+        return best;
+    }
+
+    public void setPaths(ArrayList<Path> nuevaGeneracion) {
+        this.possiblePaths = nuevaGeneracion;
     }
 
 

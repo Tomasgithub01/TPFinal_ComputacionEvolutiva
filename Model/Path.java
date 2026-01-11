@@ -11,6 +11,7 @@ public class Path {
     private final Random random = new Random();
     private final int[][] costs;
 
+    //Constructor para generar caminos randoms
     public Path(int numberOfCities, int[][] costs) {
         if (numberOfCities <= 0) {
             throw new IllegalArgumentException("La cantidad de ciudades debe ser mayor a 0");
@@ -31,6 +32,26 @@ public class Path {
             cities.add(i);
         }
         shuffleCities();
+        calculateCost();
+    }
+
+    //Constructor para caminos generados mediante cruce
+    public Path(List<Integer> citiesList, int[][] costs) {
+        if (citiesList == null || citiesList.isEmpty()) {
+            throw new IllegalArgumentException("La lista de ciudades no puede ser vacía");
+        }
+        int numberOfCities = citiesList.size();
+        if (costs == null || costs.length != numberOfCities) {
+            throw new IllegalArgumentException("La matriz de costos debe ser cuadrada y concordar con la cantidad de ciudades");
+        }
+        for (int i = 0; i < numberOfCities; i++) {
+            if (costs[i] == null || costs[i].length != numberOfCities) {
+                throw new IllegalArgumentException("La matriz de costos debe ser cuadrada");
+            }
+        }
+
+        this.costs = costs;
+        this.cities = new ArrayList<>(citiesList);
         calculateCost();
     }
 
@@ -102,6 +123,10 @@ public class Path {
 
     public ArrayList<Integer> getCities(){
         return cities;
+    }
+
+    public int[][] getCosts(){
+        return costs;
     }
 
     @Override
