@@ -24,7 +24,7 @@ Este proyecto implementa un algoritmo genético completo con visualización web 
   - **Selección de supervivientes**: Elitismo y Steady State
 - **Parámetros configurables**: Tamaño de población, generaciones, probabilidades de mutación y cruce
 
-### 📊 Visualización y Análisis
+### Visualización y Análisis
 - **Gráficos interactivos**: Generación automática de visualizaciones HTML para evolución del fitness de la población
 - **Análisis de diversidad**: Cálculo y visualización de diversidad poblacional
 - **Exportación de datos**: Logs en JSON para análisis posterior
