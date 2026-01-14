@@ -2,7 +2,7 @@
 
 Implementación de un **Algoritmo Evolutivo** para resolver el **Problema del Viajante de Comercio Asimétrico (ATSP)**, desarrollado como trabajo final de la materia Introducción a la Computación Evolutiva (Ingeniería de Sistemas, FCE, UNCPBA).
 
-## 📋 Descripción
+## Descripción
 
 Este proyecto implementa un algoritmo genético completo con visualización web interactiva donde:
 - **Individuos**: Cada individuo representa un camino (permutación de ciudades)
@@ -12,9 +12,9 @@ Este proyecto implementa un algoritmo genético completo con visualización web 
 - **Visualización**: Gráficos interactivos de evolución y métricas en HTML con Chart.js
 - **Logging**: Sistema de registro de ejecuciones y métricas evolutivas
 
-## ✨ Características Principales
+## Características Principales
 
-### 🧬 Algoritmo Genético
+### Algoritmo Genético
 - **Lectura de archivos ATSP**: Soporta el formato estándar TSPLIB
 - **Inicialización flexible**: Población aleatoria o mixta con heurística del vecino más cercano
 - **Múltiples operadores genéticos configurables**:
@@ -29,13 +29,13 @@ Este proyecto implementa un algoritmo genético completo con visualización web 
 - **Análisis de diversidad**: Cálculo y visualización de diversidad poblacional
 - **Exportación de datos**: Logs en JSON para análisis posterior
 
-### 🔧 Utilidades
+### Utilidades
 - **ExecutionLogger**: Sistema de logging configurable para registrar experimentos
 - **EvolutionMetrics**: Seguimiento detallado de métricas evolutivas
 - **EvolutionChart**: Generación automática de gráficos HTML interactivos
 - **ATSPReader**: Lector de archivos ATSP
 
-## 🏗️ Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 ├── Main.java                              # Punto de entrada, configuración y ejecución del algoritmo
@@ -66,7 +66,7 @@ Este proyecto implementa un algoritmo genético completo con visualización web 
 └── Tests/                                 # Directorio de pruebas
 ```
 
-## 🚀 Uso
+## Uso
 
 ### Compilación y Ejecución
 
@@ -119,7 +119,7 @@ Para visualizar los gráficos, simplemente abre el archivo `evolucion.html` en t
   
 Ambos archivos se pueden encontrar en la carpeta **Tests/ejecucionX** con X el número de ejecuciones realizadas con anterioridad. Nota: En la primera ejecución se creará de forma automática la carpeta Tests con la carpeta ejecución1, que contendrá estos archivos
 
-## 📊 Métricas y Análisis
+## Métricas y Análisis
 
 ### Métricas Registradas
 
@@ -127,14 +127,14 @@ Ambos archivos se pueden encontrar en la carpeta **Tests/ejecucionX** con X el n
 - **Diversity**: Medida de diversidad poblacional (distancia promedio entre individuos)
 - **Execution Time**: Tiempo transcurrido en milisegundos
 
-## 🧪 Archivos de Prueba
+## Archivos de Prueba
 
 El proyecto incluye tres instancias de prueba de la literatura clásica en formato ATSP:
 
 - **`br17.atsp`**: 17 ciudades
 - **`p43.atsp`**: 43 ciudades
 
-## 🔬 Detalles de Implementación
+## Detalles de Implementación
 
 ### Representación
 
