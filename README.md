@@ -1,6 +1,6 @@
 # Computación Evolutiva - TSP (Problema del Viajante de Comercio)
 
-Implementación de un **Algoritmo Evolutivo** para resolver el **Problema del Viajante de Comercio Asimétrico (ATSP)**, desarrollado como trabajo final de la materia Introducción a la Computación Evolutiva (Ingeniería de Sistemas, FCE, UNCPBA).
+Implementación de un **Algoritmo Evolutivo** para resolver el **Problema del Viajante de Comercio Asimétrico (ATSP)**, desarrollado como trabajo final de la materia Introducción a la Computación Evolutiva (Ingeniería de Sistemas, FCEx, UNCPBA).
 
 ## Descripción
 
@@ -39,6 +39,7 @@ Este proyecto implementa un algoritmo genético completo con visualización web 
 
 ```
 ├── Main.java                              # Punto de entrada, configuración y ejecución del algoritmo
+├── README.md                              # Información de soporte para uso del proyecto
 ├── Model/
 │   ├── Population.java                    # Manejo de la población y evolución
 │   ├── Path.java                          # Representación de un camino y cálculo de fitness
@@ -57,10 +58,13 @@ Este proyecto implementa un algoritmo genético completo con visualización web 
 │   ├── ElitismSurvivorMethod.java         # Supervivencia por elitismo
 │   └── SteadyStateSurvivorSelectionMethod.java # Supervivencia steady state
 ├── Util/
+│   ├── Asymmetric TSPs-Best knows solutions.pdf    # Mejores soluciones conocidas para distintas instancias del Problema del Viajante de Comercio
 │   ├── ATSPReader.java                    # Lector de archivos ATSP
 │   ├── EvolutionMetrics.java              # Seguimiento de métricas evolutivas
 │   ├── EvolutionChart.java                # Generador de gráficos HTML
-│   ├── ExecutionLogger.java               # Sistema de logging de experimentos
+│   ├── ExecutionLogger.java               # Sistema de logging de ejecuciones
+│   ├── ExecutionConfig.java               # Almacena parámetros de configuración para posterior creación del .json
+│   ├── ExecutionResult.java               # Almacena métricas resultantes de la ejecución para posterior creación del .json
 │   ├── br17.atsp                          # Instancia de prueba (17 ciudades)
 │   └── p43.atsp                           # Instancia de prueba (43 ciudades)
 └── Tests/                                 # Directorio de pruebas
@@ -68,18 +72,28 @@ Este proyecto implementa un algoritmo genético completo con visualización web 
 
 ## Uso
 
-### Compilación y Ejecución
+### Compilación y Ejecución desde consola
 
-```bash
-javac Main.java
-java Main
-```
+#### Linux / macOS / Windows
+1. Abrir una terminal.
+2. Posicionarse en el directorio raíz del proyecto:
+   ```bash (powershell en Windows)
+   cd ruta/al/proyecto
+3. Compilar el programa:
+   ```bash (powershell en Windows)
+   javac Main.java
+4. Ejecutar la aplicación:
+   ```bash (powershell en Windows)
+   java Main
+
+### Compilación y Ejecución desde un IDE
+ Se puede ejecutar directamente desde un IDE con soporte para Java. Se recomienda usar [Intellij IDEA][https://www.jetbrains.com/es-es/idea/] o [Eclipse][https://eclipseide.org/]
 
 ### Parámetros de Entrada
 
 El programa solicita interactivamente los siguientes parámetros:
 
-1. **Ruta del archivo ATSP**: Archivo con la matriz de costos (formato TSPLIB)
+1. **Ruta del archivo ATSP**: Archivo con la matriz de costos (formato TSPLIB), ej: carpetaEjemplo/archivoIntancias.atsp
 2. **Número de individuos (N)**: Tamaño de la población (ej: 10, 50, 100)
 3. **Número de generaciones (G)**: Iteraciones del algoritmo (ej: 500, 1000)
 4. **Probabilidad de mutación**: Valor entre 0.0 y 1.0 (ej: 0.05)
@@ -164,7 +178,7 @@ El proyecto incluye tres instancias de prueba de la literatura clásica en forma
 
 ## Requisitos
 
-- **Java 8 o superior**
+- **Java 8 o superior** (se testeó con Java 21.0.3)
 - **No requiere librerías externas Java**
 
 ## Autor
