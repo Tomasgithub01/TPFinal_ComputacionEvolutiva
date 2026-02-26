@@ -88,7 +88,7 @@ Este proyecto implementa un algoritmo genético completo con visualización web 
 Primero, clona el repositorio en tu máquina local:
 
 ```bash
-git clone https://github.com/tu-usuario/TPFinal_ComputacionEvolutiva.git
+git clone https://github.com/Tomasgithub01/TPFinal_ComputacionEvolutiva.git
 cd TPFinal_ComputacionEvolutiva
 ```
 
