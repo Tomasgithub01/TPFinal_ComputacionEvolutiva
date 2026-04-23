@@ -13,7 +13,6 @@ public class SteadyStateSurvivorSelectionMethod implements SurvivorsSelectionMet
 
     @Override
     public ArrayList<Path> selectSurvivors(ArrayList<Path> generacionVieja, ArrayList<Path> hijos) {
-        int tamanoPoblacion = generacionVieja.size();
 
         // Ordenar población vieja por fitness (peor a mejor = menor a mayor fitness)
         ArrayList<Path> poblacionOrdenada = new ArrayList<>(generacionVieja);

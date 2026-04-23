@@ -90,7 +90,7 @@ public class EvolutionMetrics {
     public List<Double> getBestFitnessList() { return new ArrayList<Double>(bestFitnessList); }
     public List<Double> getDiversityList() { return new ArrayList<Double>(diversityList); }
     public List<Integer> getGenerationList() { return new ArrayList<Integer>(generationList); }
-    public long getTiempoEjecucion(){return tiempoEjecucion;}
+    public long getExecutionTime(){return tiempoEjecucion;}
 
     // Método para cargar datos de fitness desde una lista externa
     public void loadFitnessData(List<Double> fitnessData) {

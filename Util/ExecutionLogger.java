@@ -17,7 +17,7 @@ public class ExecutionLogger {
         // Fecha y archivo
         String fecha = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         json.append("  \"fecha\": \"").append(fecha).append("\",\n");
-        json.append("  \"archivo\": \"").append(configuracion.getArchivo()).append("\",\n");
+        json.append("  \"archivo\": \"").append(configuracion.getFile()).append("\",\n");
 
         // Configuración
         json.append("  \"configuracion\": {\n");
@@ -27,26 +27,26 @@ public class ExecutionLogger {
         json.append("    \"probabilidadMutacion\": ").append(configuracion.getMutProb()).append(",\n");
         json.append("    \"probabilidadCruce\": ").append(configuracion.getCrossProb()).append(",\n");
 
-        Double porcentajeNN = configuracion.getPorcentajeNN();
-        Integer tamanioTorneo = configuracion.getTamanioTorneo();
-        Integer numReemplazoSteadyState = configuracion.getNumReemplazoSteadyState();
-        Integer elite = configuracion.getElite();
+        Double porcentajeNN = configuracion.getNNpercentage();
+        Integer tamanioTorneo = configuracion.getTournamentSize();
+        Integer numReemplazoSteadyState = configuracion.getSteadyStateNumber();
+        Integer elite = configuracion.getEliteNumber();
 
 
         if (porcentajeNN != null) {
             json.append("    \"porcentajeNN\": ").append(porcentajeNN).append(",\n");
         }
 
-        json.append("    \"seleccion\": \"").append(configuracion.getSeleccion()).append("\"");
+        json.append("    \"seleccion\": \"").append(configuracion.getSelectionOperator()).append("\"");
         if (tamanioTorneo != null) {
             json.append(",\n    \"tamanioTorneo\": ").append(tamanioTorneo);
         }
         json.append(",\n");
 
-        json.append("    \"cruce\": \"").append(configuracion.getCruce()).append("\",\n");
-        json.append("    \"mutacion\": \"").append(configuracion.getMutacion()).append("\",\n");
+        json.append("    \"cruce\": \"").append(configuracion.getCrossOperator()).append("\",\n");
+        json.append("    \"mutacion\": \"").append(configuracion.getMutationOperator()).append("\",\n");
 
-        json.append("    \"supervivientes\": \"").append(configuracion.getSupervivientes()).append("\"");
+        json.append("    \"supervivientes\": \"").append(configuracion.getSurvivorsOperator()).append("\"");
         if (numReemplazoSteadyState != null) {
             json.append(",\n    \"numReemplazoSteadyState\": ").append(numReemplazoSteadyState);
         }
@@ -114,12 +114,12 @@ public class ExecutionLogger {
 
         // Estadísticas globales
         json.append("  \"estadisticasGlobales\": {\n");
-        json.append("    \"promedioFitness\": ").append(ExecutionResult.calcularPromedioFitness(resultadosEjecuciones)).append(",\n");
-        json.append("    \"desviacionEstandarFitness\": ").append(ExecutionResult.calcularDesviacionEstandarFitness(resultadosEjecuciones)).append(",\n");
-        json.append("    \"promedioCosto\": ").append(ExecutionResult.calcularPromedioCosto(resultadosEjecuciones)).append(",\n");
-        json.append("    \"desviacionEstandarCosto\": ").append(ExecutionResult.calcularDesviacionEstandarCosto(resultadosEjecuciones)).append(",\n");
-        json.append("    \"promedioTiempoMs\": ").append(ExecutionResult.calcularPromedioTiempo(resultadosEjecuciones)).append(",\n");
-        json.append("    \"desviacionEstandarTiempoMs\": ").append(ExecutionResult.calcularDesviacionEstandarTiempo(resultadosEjecuciones)).append("\n");
+        json.append("    \"promedioFitness\": ").append(ExecutionResult.calculateFitnessMean(resultadosEjecuciones)).append(",\n");
+        json.append("    \"desviacionEstandarFitness\": ").append(ExecutionResult.calculateStdFitness(resultadosEjecuciones)).append(",\n");
+        json.append("    \"promedioCosto\": ").append(ExecutionResult.calcularCostsMean(resultadosEjecuciones)).append(",\n");
+        json.append("    \"desviacionEstandarCosto\": ").append(ExecutionResult.calculateStdCosts(resultadosEjecuciones)).append(",\n");
+        json.append("    \"promedioTiempoMs\": ").append(ExecutionResult.calculateTimesMean(resultadosEjecuciones)).append(",\n");
+        json.append("    \"desviacionEstandarTiempoMs\": ").append(ExecutionResult.calculateStdTimes(resultadosEjecuciones)).append("\n");
         json.append("  }\n");
 
         json.append("}");

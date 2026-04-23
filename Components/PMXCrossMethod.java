@@ -16,8 +16,8 @@ public class PMXCrossMethod implements CrossMethod {
 
     @Override
     public ArrayList<Path> crossCouple(Couple couple) {
-        Path padre = couple.getPadre1();
-        Path madre = couple.getPadre2();
+        Path padre = couple.getFather();
+        Path madre = couple.getMother();
 
         ArrayList<Integer> P1 = new ArrayList<>(padre.getCities());
         ArrayList<Integer> P2 = new ArrayList<>(madre.getCities());

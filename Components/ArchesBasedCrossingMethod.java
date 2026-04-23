@@ -16,8 +16,8 @@ public class ArchesBasedCrossingMethod implements CrossMethod {
     //Cruce basado en arcos para una pareja. Debido que el algoritmo está pensado para generar un solo hijo,
     // se aplica dos veces intercambiando el rol de los padres
     public ArrayList<Path> crossCouple(Couple couple) {
-        Path padre1 = couple.getPadre1();
-        Path padre2 = couple.getPadre2();
+        Path padre1 = couple.getFather();
+        Path padre2 = couple.getMother();
 
         ArrayList<Integer> genesPadre = new ArrayList<>(padre1.getCities());
         ArrayList<Integer> genesMadre = new ArrayList<>(padre2.getCities());

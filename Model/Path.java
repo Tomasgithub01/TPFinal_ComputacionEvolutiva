@@ -140,7 +140,6 @@ public class Path {
             cities.add(i);
         }
 
-        // Shuffle usando el Random proporcionado (con semilla)
         for (int i = cities.size() - 1; i > 0; i--) {
             int j = random.nextInt(i + 1);
             int tmp = cities.get(i);

@@ -38,7 +38,7 @@ public class RouletteWheelMethod implements FatherSelectionMethod{
             }
         }
 
-        //Return solo para que no de problemas, no debería llegar acá, por le pongo un warning por las dudas
+        //Return solo para que no de problemas, no debería llegar acá, por lo que le pongo un warning por las dudas
         System.out.println("Algo falló al seleccionar un camino por el método de la rueda de ruleta");
         return paths.getLast();
     }

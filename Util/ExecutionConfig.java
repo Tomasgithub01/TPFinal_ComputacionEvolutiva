@@ -37,19 +37,19 @@ public class ExecutionConfig {
         this.elite = elite;
     }
 
-    public String getArchivo() { return archivo; }
+    public String getFile() { return archivo; }
     public int getN() { return N; }
     public int getG() { return G; }
     public int getC() { return C; }
     public double getMutProb() { return mutProb; }
     public double getCrossProb() { return crossProb; }
-    public String getSeleccion() { return seleccion; }
-    public String getCruce() { return cruce; }
-    public String getMutacion() { return mutacion; }
-    public String getSupervivientes() { return supervivientes; }
-    public Double getPorcentajeNN() { return porcentajeNN; }
-    public Integer getTamanioTorneo() { return tamanioTorneo; }
-    public Integer getNumReemplazoSteadyState() { return numReemplazoSteadyState; }
-    public Integer getElite() { return elite; }
+    public String getSelectionOperator() { return seleccion; }
+    public String getCrossOperator() { return cruce; }
+    public String getMutationOperator() { return mutacion; }
+    public String getSurvivorsOperator() { return supervivientes; }
+    public Double getNNpercentage() { return porcentajeNN; }
+    public Integer getTournamentSize() { return tamanioTorneo; }
+    public Integer getSteadyStateNumber() { return numReemplazoSteadyState; }
+    public Integer getEliteNumber() { return elite; }
 }
 

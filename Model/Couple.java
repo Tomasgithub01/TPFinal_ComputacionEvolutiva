@@ -9,6 +9,6 @@ public class Couple{
         this.mom = padre2;
     }
 
-    public Path getPadre1() { return dad; }
-    public Path getPadre2() { return mom; }
+    public Path getFather() { return dad; }
+    public Path getMother() { return mom; }
 }

@@ -30,7 +30,7 @@ public class Main {
                 filePath = "Util/p43.atsp";
             }
             else{
-                System.out.println("Valor erróneo ingresado");
+                System.err.println("Valor erróneo ingresado");
                 scanner.close();
                 return;
             }
@@ -47,7 +47,7 @@ public class Main {
             }
         }
         else {
-            System.out.println("Valor erróneo ingresado");
+            System.err.println("Valor erróneo ingresado");
             scanner.close();
             return;
         }
@@ -178,7 +178,7 @@ public class Main {
             System.out.print("Seleccione el valor de n (cantidad de individuos de la anterior generación a ser reemplazados en la siguiente): ");
             numReemplazoSteadyState = Integer.parseInt(scanner.nextLine());
             if (numReemplazoSteadyState >= N || numReemplazoSteadyState <= 0) {
-                System.out.println("El valor a reemplazar debe ser menor al tamaño de la población y mayor a 0");
+                System.err.println("El valor a reemplazar debe ser menor al tamaño de la población y mayor a 0");
                 scanner.close();
                 return;
             }
@@ -186,7 +186,7 @@ public class Main {
             System.out.print("Seleccione el valor de k (cantidad de mejores individuos de la generación a preservar en la siguiente): ");
             elite = Integer.parseInt(scanner.nextLine());
             if (elite < 0 || elite > N) {
-                System.out.println("El valor ingresado no es válido. Debe ser superior o igual a 0 y menor al tamaño de la población");
+                System.err.println("El valor ingresado no es válido. Debe ser superior o igual a 0 y menor al tamaño de la población");
                 scanner.close();
                 return;
             }
@@ -205,7 +205,7 @@ public class Main {
         try {
             ejecuciones = Integer.parseInt(scanner.nextLine());
             if (ejecuciones <= 0){
-                System.out.println("Error: debe elegir un valor mayor a cero");
+                System.err.println("Error: debe elegir un valor mayor a cero");
                 scanner.close();
                 return;
             }
@@ -218,7 +218,7 @@ public class Main {
         // ========== GENERAR SEMILLAS ALEATORIAS REPRODUCIBLES ==========
         // Usar una semilla fija para generar siempre la misma secuencia de semillas y poder comparar las ejecuciones
         // entre las diferentes configuraciones
-        long[] semillas = generarSemillas(ejecuciones, 42L);
+        long[] semillas = generateSeed(ejecuciones, 42L);
 
 
         // ========== EJECUCIÓN DEL ALGORITMO ==========
@@ -302,8 +302,8 @@ public class Main {
                         hijos = crossMethod.crossCouple(pareja);
                     } else {
                         // Sin cruce, hijos clones de los padres
-                        Path hijo1 = new Path(pareja.getPadre1().getCities(), pareja.getPadre1().getCosts());
-                        Path hijo2 = new Path(pareja.getPadre2().getCities(), pareja.getPadre2().getCosts());
+                        Path hijo1 = new Path(pareja.getFather().getCities(), pareja.getFather().getCosts());
+                        Path hijo2 = new Path(pareja.getMother().getCities(), pareja.getMother().getCosts());
                         hijos = new ArrayList<>();
                         hijos.add(hijo1);
                         hijos.add(hijo2);
@@ -333,14 +333,14 @@ public class Main {
             System.out.println("Ejecución " + numEjecucion + " completada - Mejor costo: " + p.getBestPath().getPathCost());
 
             ExecutionResult resultadosEjecucion = new ExecutionResult(metricas.getFinalBestFitness(), p.getBestPath().getPathCost(),
-                    metricas.getTiempoEjecucion(), metricas.getBestFitnessList(), metricas.getDiversityList(), p.getBestPath().getCities());
+                    metricas.getExecutionTime(), metricas.getBestFitnessList(), metricas.getDiversityList(), p.getBestPath().getCities());
 
             todosLosResultados.add(resultadosEjecucion);
         }
 
 
 
-        System.out.println();
+        System.out.println(" ");
         System.out.println("========================================");
         System.out.println("RESULTADOS FINALES - " + ejecuciones + " EJECUCIONES COMPLETADAS");
         System.out.println("========================================");
@@ -414,7 +414,7 @@ public class Main {
     }
 
     //Genera un arreglo con semillas de generación
-    private static long[] generarSemillas(int cantidad, long semillaInicial) {
+    private static long[] generateSeed(int cantidad, long semillaInicial) {
         Random generador = new Random(semillaInicial);
         long[] semillas = new long[cantidad];
 

@@ -91,12 +91,12 @@ public class AllExecutionsEvolutionChart {
         html.append("        </div>\n");
 
         // Calcular estadísticas
-        double promedioFitness = ExecutionResult.calcularPromedioFitness(resultados);
-        double desviacionFitness = ExecutionResult.calcularDesviacionEstandarFitness(resultados);
-        double promedioCosto = ExecutionResult.calcularPromedioCosto(resultados);
-        double desviacionCosto = ExecutionResult.calcularDesviacionEstandarCosto(resultados);
-        double promedioTiempo = ExecutionResult.calcularPromedioTiempo(resultados);
-        double desviacionTiempo = ExecutionResult.calcularDesviacionEstandarTiempo(resultados);
+        double promedioFitness = ExecutionResult.calculateFitnessMean(resultados);
+        double desviacionFitness = ExecutionResult.calculateStdFitness(resultados);
+        double promedioCosto = ExecutionResult.calcularCostsMean(resultados);
+        double desviacionCosto = ExecutionResult.calculateStdCosts(resultados);
+        double promedioTiempo = ExecutionResult.calculateTimesMean(resultados);
+        double desviacionTiempo = ExecutionResult.calculateStdTimes(resultados);
 
         // Tabla de estadísticas
         html.append("        <div style='background: white; padding: 20px; border-radius: 8px; margin-bottom: 30px;'>\n");
@@ -173,10 +173,10 @@ public class AllExecutionsEvolutionChart {
         StringBuilder script = new StringBuilder();
 
         // Calcular estadísticas
-        double promedioCosto = ExecutionResult.calcularPromedioCosto(resultados);
-        double desviacionCosto = ExecutionResult.calcularDesviacionEstandarCosto(resultados);
-        double promedioTiempo = ExecutionResult.calcularPromedioTiempo(resultados);
-        double desviacionTiempo = ExecutionResult.calcularDesviacionEstandarTiempo(resultados);
+        double promedioCosto = ExecutionResult.calcularCostsMean(resultados);
+        double desviacionCosto = ExecutionResult.calculateStdCosts(resultados);
+        double promedioTiempo = ExecutionResult.calculateTimesMean(resultados);
+        double desviacionTiempo = ExecutionResult.calculateStdTimes(resultados);
 
         // Obtener todos los costos y tiempos
         script.append("\n// Estadísticas de las ejecuciones\n");

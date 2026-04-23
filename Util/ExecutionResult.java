@@ -31,7 +31,7 @@ public class ExecutionResult {
 
 
     // Calcula el promedio de una lista de valores numéricos
-    private static double calcularPromedio(List<Double> valores) {
+    private static double calculateMean(List<Double> valores) {
         if (valores.isEmpty()) {
             return 0.0;
         }
@@ -45,12 +45,12 @@ public class ExecutionResult {
     }
 
     // Calcula la desviación estándar de una lista de valores numéricos
-    private static double calcularDesviacionEstandar(List<Double> valores) {
+    private static double calculateStd(List<Double> valores) {
         if (valores.isEmpty()) {
             return 0.0;
         }
 
-        double promedio = calcularPromedio(valores);
+        double promedio = calculateMean(valores);
         double sumaDiferenciasCuadradas = 0.0;
 
         for (double valor : valores) {
@@ -63,7 +63,7 @@ public class ExecutionResult {
     }
 
     // Extrae los valores de mejor fitness final de cada ejecución
-    private static List<Double> extraerFitness(List<ExecutionResult> resultados) {
+    private static List<Double> extractFitness(List<ExecutionResult> resultados) {
         List<Double> valores = new ArrayList<>();
         for (ExecutionResult resultado : resultados) {
             valores.add(resultado.getFinalBestFitness());
@@ -72,7 +72,7 @@ public class ExecutionResult {
     }
 
     // Extrae los valores de costo mínimo de cada ejecución
-    private static List<Double> extraerCostos(List<ExecutionResult> resultados) {
+    private static List<Double> extractCosts(List<ExecutionResult> resultados) {
         List<Double> valores = new ArrayList<>();
         for (ExecutionResult resultado : resultados) {
             valores.add((double) resultado.getBestCost());
@@ -81,7 +81,7 @@ public class ExecutionResult {
     }
 
     // Extrae los tiempos de ejecución de cada ejecución
-    private static List<Double> extraerTiempos(List<ExecutionResult> resultados) {
+    private static List<Double> extractTimes(List<ExecutionResult> resultados) {
         List<Double> valores = new ArrayList<>();
         for (ExecutionResult resultado : resultados) {
             valores.add((double) resultado.getExecutionTime());
@@ -90,32 +90,32 @@ public class ExecutionResult {
     }
 
     // Calcula el promedio del mejor fitness obtenido en todas las ejecuciones
-    public static double calcularPromedioFitness(List<ExecutionResult> resultados) {
-        return calcularPromedio(extraerFitness(resultados));
+    public static double calculateFitnessMean(List<ExecutionResult> resultados) {
+        return calculateMean(extractFitness(resultados));
     }
 
     // Calcula el promedio del mejor costo obtenido en todas las ejecuciones
-    public static double calcularPromedioCosto(List<ExecutionResult> resultados) {
-        return calcularPromedio(extraerCostos(resultados));
+    public static double calcularCostsMean(List<ExecutionResult> resultados) {
+        return calculateMean(extractCosts(resultados));
     }
 
     // Calcula el promedio del tiempo de ejecución de todas las ejecuciones
-    public static double calcularPromedioTiempo(List<ExecutionResult> resultados) {
-        return calcularPromedio(extraerTiempos(resultados));
+    public static double calculateTimesMean(List<ExecutionResult> resultados) {
+        return calculateMean(extractTimes(resultados));
     }
 
     // Calcula la desviación estándar del mejor fitness obtenido en todas las ejecuciones
-    public static double calcularDesviacionEstandarFitness(List<ExecutionResult> resultados) {
-        return calcularDesviacionEstandar(extraerFitness(resultados));
+    public static double calculateStdFitness(List<ExecutionResult> resultados) {
+        return calculateStd(extractFitness(resultados));
     }
 
     // Calcula la desviación estándar del mejor costo obtenido en todas las ejecuciones
-    public static double calcularDesviacionEstandarCosto(List<ExecutionResult> resultados) {
-        return calcularDesviacionEstandar(extraerCostos(resultados));
+    public static double calculateStdCosts(List<ExecutionResult> resultados) {
+        return calculateStd(extractCosts(resultados));
     }
 
     // Calcula la desviación estándar del tiempo de ejecución de todas las ejecuciones
-    public static double calcularDesviacionEstandarTiempo(List<ExecutionResult> resultados) {
-        return calcularDesviacionEstandar(extraerTiempos(resultados));
+    public static double calculateStdTimes(List<ExecutionResult> resultados) {
+        return calculateStd(extractTimes(resultados));
     }
 }
